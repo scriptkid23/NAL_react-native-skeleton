@@ -4,8 +4,8 @@ const Block = Styled.button`
   background : ${props => !props.value ? `#767c77` : `#ffd571`};
   border : none;
   border-radius: 20%;
-  width : 50px;
-  height : 50px;
+  width : 2.5rem;
+  height : 2.5rem;
   margin : 5px;
 `
 const Container = Styled.div`
