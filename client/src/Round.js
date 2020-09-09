@@ -2,9 +2,10 @@ import React from 'react';
 import{Block,Container} from './styled'
 import Lottie from 'lottie-react-web'
 import success from './success.json';
-
+import ReactCardFlip from 'react-card-flip';
 export default (props) => {
     const [challenge,setChallenge] = React.useState(props.challenge)
+    const [flipped,setFlipped] = React.useState(false);
     const [win, setWin] = React.useState(false);
     const n = challenge.length;
     const m = challenge[0].length;
@@ -21,6 +22,7 @@ export default (props) => {
     }
     const handleBlock = (row,col) =>{
       challenge[row][col] = !challenge[row][col]
+      setFlipped(!flipped)
         if(row > 0 && row < n - 1&& col > 0 && col < m - 1){
             challenge[row][col - 1] = !challenge[row][col - 1]
             challenge[row][col + 1] = !challenge[row][col + 1]
@@ -71,8 +73,8 @@ export default (props) => {
     const generateBlock = (row, value) => {
      
         return value.map((state,col)=> {
-            return(
-                <Block key={col} value={state} onClick={()=>handleBlock(row,col)}/>
+            return(         
+                <Block className="button" key={col} value={state} onClick={()=>handleBlock(row,col)}/>          
             )
         })
     }

@@ -1,7 +1,7 @@
 import Styled from 'styled-components'
 
 const Block = Styled.button`
-  background : ${props => !props.value ? `#767c77` : `#ffd571`};
+  background : ${props => !props.value ? `#767c77` : `#fddb3a`};
   border : none;
   border-radius: 20%;
   width : 2.5rem;

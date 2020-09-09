@@ -40,3 +40,23 @@
     transform: rotate(360deg);
   }
 }
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #a4b494;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #a4b494}
+
+.button:active {
+  background-color: #a4b494;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
