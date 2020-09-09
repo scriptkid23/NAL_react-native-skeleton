@@ -41,7 +41,7 @@
   }
 }
 .button {
-  
+  font-size: 24px;
   text-align: center;
   cursor: pointer;
   outline: none;
@@ -50,9 +50,6 @@
   border: none;
   box-shadow: 0 9px #999;
 }
-
-.button:hover {background-color: #a4b494}
-
 .button:active {
   background-color: #a4b494;
   box-shadow: 0 5px #666;
