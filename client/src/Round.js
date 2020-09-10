@@ -7,6 +7,7 @@ export default (props) => {
     const [challenge,setChallenge] = React.useState(props.challenge)
     const [flipped,setFlipped] = React.useState(false);
     const [win, setWin] = React.useState(false);
+    
     const n = challenge.length;
     const m = challenge[0].length;
     const checkWin = () => {
@@ -66,7 +67,9 @@ export default (props) => {
             challenge[row][col - 1] = !challenge[row][col - 1]
         }
         setChallenge([...challenge])
-        if(checkWin()){
+        props.countDown();
+       
+        if(checkWin() && props.countDownValue > 0){
             setWin(true)
         }
     }
@@ -81,19 +84,22 @@ export default (props) => {
     
     return(
        <div>
-          {win ? <Lottie
-          style={{position:"a"}}
-          options={{
-            animationData: success
-            }}
-            /> : challenge.map((value,index)=>{
+          {win ? 
+          <div>
+            <Lottie
+                options={{
+                animationData: success
+                }}
+           />
+           <p>Congratulations, just for laughs</p>
+          </div> : challenge.map((value,index)=>{
                 return(
                     <Container key={index}>
                         {generateBlock(index,value)}
                     </Container>
                 )
             })} 
-
+        
        </div>
     )
 
