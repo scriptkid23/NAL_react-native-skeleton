@@ -19,7 +19,7 @@ function App() {
             Please press the button for color the boxes<br/>
             You win if all the boxes turn <span style={{color:"#fddb3a"}}>yellow</span><br/>
             Number of presses remaining {countDown}
-            {countDown < 0 && <p>You Lost</p>}
+            {countDown < 0 && <p>You Lose 🙂</p>}
           </p>
         </div>
       </header>
