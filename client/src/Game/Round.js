@@ -1,7 +1,7 @@
 import React from 'react';
-import{Block,Container} from './styled'
+import{Block,Container} from '../styled'
 import Lottie from 'lottie-react-web'
-import success from './success.json';
+import success from '../success.json';
 import ReactCardFlip from 'react-card-flip';
 export default (props) => {
     const [challenge,setChallenge] = React.useState(props.challenge)
