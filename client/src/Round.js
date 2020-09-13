@@ -77,7 +77,12 @@ export default (props) => {
      
         return value.map((state,col)=> {
             return(         
-                <Block className="button" key={col} value={state} onClick={()=>handleBlock(row,col)}/>          
+                <Block 
+                    className="button" 
+                    key={col} 
+                    value={state} 
+                    onClick={()=>handleBlock(row,col)}
+                />          
             )
         })
     }
