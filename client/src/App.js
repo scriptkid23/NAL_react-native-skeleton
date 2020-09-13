@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Round from './Game/Round'
+import Round from './Round'
 import {round_one} from './Challenge'
 
 function App() {
