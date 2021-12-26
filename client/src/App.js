@@ -61,7 +61,7 @@ function PlayGame({ contract }) {
           You win (Viettel - 100.000 VND) if all the boxes turn <span style={{ color: "#fddb3a" }}>yellow</span><br />
           Number of presses remaining {countDown} <br />
           {countDown < 0 && <p>You Lose 🙂</p>}
-          <a href="https://google.com" style={{ color: "white" }}>Whitepaper</a>
+          <a href="https://hoan-do.gitbook.io/whitepaper/" style={{ color: "white" }}>Whitepaper</a>
         </p>}
       </div>
     </>
@@ -88,7 +88,7 @@ function Vote({ contract, minimal, player }) {
       <div style={{ marginBottom: "1rem" }}>Need <span style={{ fontWeight: "bold" }}>{minimal - player}</span> players to start</div>
       {!loading && <Button style={{ marginBottom: "1rem" }} onClick={register}>Apply Now 🤑 </Button>}
       {loading && <span>Loading...</span>}
-      <a href="https://google.com" style={{ color: "white", fontSize: "14px" }}>Whitepaper</a>
+      <a href="https://hoan-do.gitbook.io/whitepaper/" style={{ color: "white", fontSize: "14px" }}>Whitepaper</a>
     </>
   )
 }
