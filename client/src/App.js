@@ -98,7 +98,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {status === "unavailable" && <div>MetaMask not available 😰</div>}
+        {status === "unavailable" && <div>MetaMask not available 😰 please read <a href="https://hoan-do.gitbook.io/whitepaper/" style={{ color: "white" }}>Whitepaper</a></div>}
         {status === "notConnected" && <Button onClick={connect}>Connect</Button>}
         {status === "connecting" && <div>Connecting...</div>}
         {status === "connected" && !data.paused && <PlayGame contract={contract}/>}
