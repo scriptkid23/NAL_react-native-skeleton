@@ -17,13 +17,11 @@ contract TipTipTap is Ownable, Pausable {
 
     event Players(uint8 players);
 
-    constructor(string memory _challenge, string[] memory _results, uint8 _minimal, string memory seri){
+    constructor(string memory _challenge, string memory _result, uint8 _minimal, string memory seri){
         challenge = _challenge;
         minimalToPlay = _minimal;
         storeCard[TypeNetwork.VIETTEL] = seri;
-        for(uint8 i = 0; i < _results.length; i++){
-            results[keccak256(abi.encodePacked(_results[i]))] = true;
-        }
+        results[keccak256(abi.encodePacked(_result))] = true;
         _pause();
     }
     function applyNow() whenPaused public {

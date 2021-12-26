@@ -4,8 +4,8 @@ import Round from './Round'
 import {round_one} from './Challenge'
 
 function App() {
-  const [countDown, setCountDown] = React.useState(10);
-
+  const [countDown, setCountDown] = React.useState(9);
+  const [win, setWin] = React.useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -13,14 +13,15 @@ function App() {
         <Round challenge = {round_one} 
                countDown= {() => setCountDown(countDown - 1)}
                countDownValue = {countDown}
+               setWin = {setWin}
         />
         <div>
-          <p>
+          {!win && <p>
             Please press the button for color the boxes<br/>
             You win if all the boxes turn <span style={{color:"#fddb3a"}}>yellow</span><br/>
             Number of presses remaining {countDown} <br/>
             {countDown < 0 && <p>You Lose 🙂</p>}
-          </p>
+          </p>}
         </div>
       </header>
     </div>
