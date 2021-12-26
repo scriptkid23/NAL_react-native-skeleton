@@ -84,7 +84,7 @@ function Vote({ contract, minimal, player }) {
   }
   return (
     <>
-      <div>The winner will get a phone card</div>
+      <div>The winner will get a phone recharge card</div>
       <div style={{ marginBottom: "1rem" }}>Need <span style={{ fontWeight: "bold" }}>{minimal - player}</span> players to start</div>
       {!loading && <Button style={{ marginBottom: "1rem" }} onClick={register}>Apply Now 🤑 </Button>}
       {loading && <span>Loading...</span>}
