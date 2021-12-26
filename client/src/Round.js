@@ -6,7 +6,6 @@ export default (props) => {
     const [challenge, setChallenge] = React.useState(props.challenge)
     const [flipped, setFlipped] = React.useState(false);
     const [win, setWin] = React.useState(false);
-    const [result, setResult] = React.useState([]);
     const n = challenge.length;
     const m = challenge[0].length;
     const checkWin = () => {
@@ -37,7 +36,7 @@ export default (props) => {
         return poisition;
     }
     const handleBlock = (row, col) => {
-        setResult([...result, exportPoisition(row,col)])
+        props.setResult([...props.result, exportPoisition(row,col)])
         challenge[row][col] = !challenge[row][col]
         setFlipped(!flipped)
         if (row > 0 && row < n - 1 && col > 0 && col < m - 1) {
@@ -84,9 +83,9 @@ export default (props) => {
         }
         setChallenge([...challenge])
         props.countDown();
-
-        if (checkWin() && props.countDownValue > 0) {
+        if (checkWin() && props.countDownValue >= 0) {
             setWin(true)
+            props.submit();
             props.setWin(true);
         }
     }
@@ -114,7 +113,7 @@ export default (props) => {
                         width={"70%"}
                     />
                     <p>Congratulations</p>
-                    <Button>Get Card</Button>
+                    <Button onClick={() => props.getCard()}>Get Card</Button>
                 </div> : challenge.map((value, index) => {
                     return (
                         <Container key={index}>

@@ -14,8 +14,8 @@ const Button = Styled.button`
   border-radius: 4px;
   background: none;
   border:2px solid rgb(171,69,255);
-  width: 100px;
-  height: 30px;
+  min-width: 145px;
+  height: 40px;
   cursor: pointer;
   color: white;
   transition: color .15s ease-in-out,
