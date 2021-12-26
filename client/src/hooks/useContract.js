@@ -25,7 +25,7 @@ export default function useContract() {
             players: _player
         })
       
-    },[data.address, data.paused, data.minimal, data.players])
+    },[signer])
    
     return {data, contract}
 }
