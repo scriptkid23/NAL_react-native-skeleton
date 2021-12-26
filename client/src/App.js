@@ -105,7 +105,9 @@ function App() {
 
         {status === "connected" && data.paused &&
           <Vote contract={contract} minimal={data?.minimal} player={data?.players} />}
+        <footer style={{position: "fixed", bottom: 0, fontSize:13, paddingBottom: 10}}>Copyright by <a href="https://www.linkedin.com/in/hoan-do-73a7661a8" style={{color:"white"}}>Hoando.</a></footer>
       </header>
+      
     </div>
   );
 }
