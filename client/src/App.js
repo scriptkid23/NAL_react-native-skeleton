@@ -10,7 +10,7 @@ function PlayGame({ contract }) {
   const [win, setWin] = React.useState(false);
   const [game, setGame] =React.useState(undefined);
   const [result, setResult] = React.useState([]);
-  const [card, setCard] = React.useState(123);
+  const [card, setCard] = React.useState(undefined);
   function array2str(arr){
     var str = "";
     for(let i = 0; i <arr.length; i++){
@@ -45,7 +45,7 @@ function PlayGame({ contract }) {
   }
   return (
     <>
-      {game && <Round 
+      {game && !card && <Round 
         challenge={game}
         countDown={() => setCountDown(countDown - 1)}
         countDownValue={countDown}
@@ -55,7 +55,7 @@ function PlayGame({ contract }) {
         setResult={setResult}
         result={result}
       />}
-      {card && <span>Contract Interaction</span>}
+      {card && <span style={{ color: "#fddb3a" }}>{card}</span>}
       <div>
         {!win && <p style={{ maxWidth: "21rem" }}>
           You win (Viettel - 100.000 VND) if all the boxes turn <span style={{ color: "#fddb3a" }}>yellow</span><br />
@@ -73,7 +73,7 @@ function Vote({ contract, minimal, player }) {
     setLoading(true);
     try{
       await contract.applyNow();
-      alert("Apply successed");
+      alert("Apply successed, please waiting for transaction complete");
       setLoading(false);
     }
     catch(e){

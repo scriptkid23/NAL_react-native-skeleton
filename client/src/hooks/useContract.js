@@ -1,7 +1,7 @@
 import React from 'react'
 import {Contract, ethers} from 'ethers'
 import {abi} from '../abis/TipTipTap.json'
-const contractAddress = "0x2BcAB2aBdE6cD81c3Fbd2709F256990f9e015e64";
+const contractAddress = "0x530635EB0d5B9FF3dd402Ba246D49F10559125ad";
 export default function useContract() {
     const [contract, setContract] = React.useState();
     const [data, setData] = React.useState({
