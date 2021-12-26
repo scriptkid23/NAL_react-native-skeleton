@@ -94,7 +94,7 @@ function Vote({ contract, minimal, player }) {
 }
 function App() {
   const { status, connect, account } = useMetaMask();
-  const { data, contract } = useContract();
+  const { data, contract } = useContract(status, account);
   return (
     <div className="App">
       <header className="App-header">
