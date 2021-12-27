@@ -129,7 +129,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {chainId !== "0x3" && <Button onClick={switchNetwork}>Switch to Rospten</Button>}
+        {chainId !== "0x3" && status === "connected" && <Button onClick={switchNetwork}>Switch to Rospten</Button>}
         {status === "unavailable" && <div>MetaMask not available 😰 please read <a href="https://hoan-do.gitbook.io/whitepaper/" style={{ color: "white" }}>Whitepaper</a></div>}
         {status === "notConnected" && chainId === "0x3" && <Button onClick={connect}>Connect</Button>}
         {status === "connecting" && <div>Connecting...</div>}
