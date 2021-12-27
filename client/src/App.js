@@ -5,6 +5,15 @@ import { Button } from './styled'
 import { useMetaMask } from "metamask-react";
 import useContract from './hooks/useContract';
 
+const ropsten = {
+  chainId: "0x3",
+  chainName: "Ropsten Testnet",
+  nativeCurrency: {
+    name: "ETHER",
+    symbol: "ETH",
+    decimals: 18
+  }
+}
 function PlayGame({ contract }) {
   const [countDown, setCountDown] = React.useState(9);
   const [win, setWin] = React.useState(false);
@@ -93,13 +102,36 @@ function Vote({ contract, minimal, player }) {
   )
 }
 function App() {
-  const { status, connect, account } = useMetaMask();
+  const { status, connect, account, chainId } = useMetaMask();
   const { data, contract } = useContract(status, account);
+  const switchNetwork = async () => {
+    try{
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: `0x${Number(3).toString(16)}` }],
+      })
+    }
+    catch(e){
+      alert(e.message);
+      // if (switchError.code === 4902) {
+      //   try {
+      //     await ethereum.request({
+      //       method: 'wallet_addEthereumChain',
+      //       params: [{ chainId: '0xf00', rpcUrl: 'https://...' /* ... */ }],
+      //     });
+      //   } catch (addError) {
+      //     alert(addError.message);
+      //   }
+      // }
+    }
+   
+  }
   return (
     <div className="App">
       <header className="App-header">
+        {chainId !== "0x3" && <Button onClick={switchNetwork}>Switch to Rospten</Button>}
         {status === "unavailable" && <div>MetaMask not available 😰 please read <a href="https://hoan-do.gitbook.io/whitepaper/" style={{ color: "white" }}>Whitepaper</a></div>}
-        {status === "notConnected" && <Button onClick={connect}>Connect</Button>}
+        {status === "notConnected" && chainId === "0x3" && <Button onClick={connect}>Connect</Button>}
         {status === "connecting" && <div>Connecting...</div>}
         {status === "connected" && !data.paused && <PlayGame contract={contract}/>}
 
